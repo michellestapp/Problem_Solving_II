@@ -13,3 +13,6 @@ def reverse_a_word():
         reversed_word += word[index]
 
     print(reversed_word)
+    
+
+reverse_a_word()
