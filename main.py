@@ -43,46 +43,79 @@
 
 # Write code that takes a user input and checks to see if it is a Palindrome and reports the result
 
-def palindrome_one():
-    is_palindrome = 'True'
-    word = input(" Enter a word to be checked as a palindrome: ")
+# def palindrome_one():
+#     is_palindrome = 'True'
+#     word = input(" Enter a word to be checked as a palindrome: ")
 
-    index = len(word) - 1
+#     index = len(word) - 1
 
-    index_one = 0
-    index_two = index
+#     index_one = 0
+#     index_two = index
 
-    while index_one in range(index):
+#     while index_one in range(index):
         
-        if word[index_one] == word[index_two]:
-            index_one += 1
-            index_two -= 1          
-            is_palindrome = 'True'
-        else:
-            is_palindrome = 'False'
-            break
+#         if word[index_one] == word[index_two]:
+#             index_one += 1
+#             index_two -= 1          
+#             is_palindrome = 'True'
+#         else:
+#             is_palindrome = 'False'
+#             break
     
-    if is_palindrome == 'True':
-        print(f"  {word} is a palindrome! ")
-    else:
-        print(f"  {word} is not a palindrome")
-    print(word)
+#     if is_palindrome == 'True':
+#         print(f"  {word} is a palindrome! ")
+#     else:
+#         print(f"  {word} is not a palindrome")
+#     print(word)
 
 
-palindrome_one()
+# palindrome_one()
 
-def palindrome_two():
-    reversed_word = ''
-    word = input(" Enter a word to verify if it is a palindrome: ")
+# def palindrome_two():
+#     reversed_word = ''
+#     word = input(" Enter a word to verify if it is a palindrome: ")
 
-    num_index = len(word) - 1
+#     num_index = len(word) - 1
 
-    for index in range(num_index, -1, -1):
-        reversed_word += word[index]
+#     for index in range(num_index, -1, -1):
+#         reversed_word += word[index]
 
-    if word == reversed_word:
-        print(f"  {word} is a palindrome! ")
-    else:
-        print(f"  {word} is not a palindrome")
+#     if word == reversed_word:
+#         print(f"  {word} is a palindrome! ")
+#     else:
+#         print(f"  {word} is not a palindrome")
 
-palindrome_two()
+# palindrome_two()
+
+# Task 4 : Compress a string of characters
+# For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
+
+def compress_string():
+    my_string = input(" Enter a string of letters: ")
+    new_string = ''
+
+    num_index = len(my_string) - 1
+    num_repeats = 1
+    compare_index = 1
+    index = 0
+
+
+    while index < num_index:
+        while my_string[index] == my_string[compare_index]:
+            num_repeats += 1
+            compare_index += 1
+            if compare_index > num_index:
+                break
+        new_string += (str(num_repeats) + my_string[index])
+
+       
+        num_repeats = 1
+        index = compare_index
+        compare_index = index + 1
+       
+
+    print(new_string)    
+
+
+
+compress_string()
